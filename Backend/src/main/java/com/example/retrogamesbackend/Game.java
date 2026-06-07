@@ -2,6 +2,8 @@ package com.example.retrogamesbackend;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "retro_games")
 public class Game {
@@ -14,7 +16,7 @@ public class Game {
 
     private String platform;
 
-    private String releaseDate;
+    private LocalDate releaseDate;
 
     private String description;
 
