@@ -12,34 +12,38 @@ import com.example.retrogamesapp.R;
 
 import java.util.List;
 
-public class GameAdapter
-        extends RecyclerView.Adapter<GameAdapter.GameViewHolder> {
+public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 
-    private List<Game> gameList;
+    private List<Game> list;
 
-    public GameAdapter(List<Game> gameList) {
-        this.gameList = gameList;
+    public GameAdapter(List<Game> list) {
+        this.list = list;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView title, platform;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.txtTitle);
+            platform = itemView.findViewById(R.id.txtPlatform);
+        }
     }
 
     @Override
-    public GameViewHolder onCreateViewHolder(
-            ViewGroup parent,
-            int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_game,
-                        parent,
-                        false);
+                .inflate(R.layout.item_game, parent, false);
 
-        return new GameViewHolder(view);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(
-            GameViewHolder holder,
-            int position) {
+    public void onBindViewHolder(ViewHolder holder, int position) {
 
-        Game game = gameList.get(position);
+        Game game = list.get(position);
 
         holder.title.setText(game.getTitle());
         holder.platform.setText(game.getPlatform());
@@ -47,24 +51,6 @@ public class GameAdapter
 
     @Override
     public int getItemCount() {
-        return gameList.size();
+        return list.size();
     }
-
-    public static class GameViewHolder
-            extends RecyclerView.ViewHolder {
-
-        TextView title;
-        TextView platform;
-
-        public GameViewHolder(View itemView) {
-
-            super(itemView);
-
-            title =
-                    itemView.findViewById(R.id.txtTitle);
-
-            platform =
-                    itemView.findViewById(R.id.txtPlatform);
-        }
-    }
-        }
+}
