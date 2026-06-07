@@ -1,20 +1,28 @@
 package com.example.retrogamesapp;
+import com.google.gson.annotations.SerializedName;
 
 public class Game {
+    @SerializedName("id")
+    private Integer id;
 
-    private int id;
-
+    @SerializedName("title")
     private String title;
-
+ 
+    @SerializedName("platform")
     private String platform;
 
+    @SerializedName("releaseDate")
     private String releaseDate;
-
+  
+    @SerializedName("description")
     private String description;
 
+    @SerializedName("imageUrl")
     private String imageUrl;
 
+    @SerializedName("youtubeUrl")
     private String youtubeUrl;
+ 
 
     public Game() {
     }
