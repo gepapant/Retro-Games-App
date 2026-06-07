@@ -1,4 +1,7 @@
 package com.example.retrogamesapp.adapter;
+import android.content.Intent;
+
+import com.example.retrogamesapp.DetailActivity;
 
 import android.view.LayoutInflater;
 import android.view.View;
