@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Retro Games Search"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Game Title"/>
+
+    <EditText
+        android:id="@+id/etDateFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date From (YYYY-MM-DD)"/>
+
+    <EditText
+        android:id="@+id/etDateTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date To (YYYY-MM-DD)"/>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search"/>
+
+    <Button
+        android:id="@+id/btnAddGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Game"/>
+
+</LinearLayout>
