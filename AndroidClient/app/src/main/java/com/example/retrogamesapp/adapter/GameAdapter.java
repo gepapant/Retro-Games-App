@@ -47,7 +47,21 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 
         holder.title.setText(game.getTitle());
         holder.platform.setText(game.getPlatform());
-    }
+
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(v.getContext(), DetailActivity.class);
+
+            intent.putExtra("title", game.getTitle());
+            intent.putExtra("platform", game.getPlatform());
+            intent.putExtra("date", game.getReleaseDate());
+            intent.putExtra("description", game.getDescription());
+            intent.putExtra("imageUrl", game.getImageUrl());
+            intent.putExtra("youtubeUrl", game.getYoutubeUrl());
+
+        v.getContext().startActivity(intent);
+    });
+}
 
     @Override
     public int getItemCount() {
