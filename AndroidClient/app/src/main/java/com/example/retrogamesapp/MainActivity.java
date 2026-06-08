@@ -13,4 +13,13 @@ public class MainActivity {
     startActivity(intent);
 });
 
+ Button addButton = findViewById(R.id.btnAddGame);
+
+ addButton.setOnClickListener(v -> {
+
+    Intent intent = new Intent(MainActivity.this, AddGameActivity.class);
+
+    startActivity(intent);
+}); 
+
 }
