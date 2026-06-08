@@ -21,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
@@ -33,12 +34,23 @@ public class DetailActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String gameTitle = intent.getStringExtra("title");
-        String gamePlatform = intent.getStringExtra("platform");
-        String gameDate = intent.getStringExtra("date");
-        String gameDescription = intent.getStringExtra("description");
-        String imageUrl = intent.getStringExtra("imageUrl");
-        youtubeUrl = intent.getStringExtra("youtubeUrl");
+        String gameTitle =
+                intent.getStringExtra("title");
+
+        String gamePlatform =
+                intent.getStringExtra("platform");
+
+        String gameDate =
+                intent.getStringExtra("release_date");
+
+        String gameDescription =
+                intent.getStringExtra("description");
+
+        String image =
+                intent.getStringExtra("image");
+
+        youtubeUrl =
+                intent.getStringExtra("youtube_url");
 
         title.setText(gameTitle);
         platform.setText(gamePlatform);
@@ -46,13 +58,16 @@ public class DetailActivity extends AppCompatActivity {
         description.setText(gameDescription);
 
         Glide.with(this)
-                .load(imageUrl)
+                .load(image)
                 .into(imgCover);
 
         btnTrailer.setOnClickListener(v -> {
 
             Intent browserIntent =
-                    new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeUrl));
+                    new Intent(
+                            Intent.ACTION_VIEW,
+                            Uri.parse(youtubeUrl)
+                    );
 
             startActivity(browserIntent);
         });
