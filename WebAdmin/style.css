@@ -1,0 +1,29 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 30px;
+}
+
+h1 {
+
+    color: #333;
+}
+
+.menu {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+a {
+
+    padding: 10px;
+
+    background: #eeeeee;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+}
