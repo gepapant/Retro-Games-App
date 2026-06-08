@@ -1,25 +1,61 @@
 package com.example.retrogamesapp;
 
-public class MainActivity {
-  
-  searchBtn.setOnClickListener(v -> {
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
-    Intent intent = new Intent(MainActivity.this, ResultsActivity.class);
+import androidx.appcompat.app.AppCompatActivity;
 
-    intent.putExtra("title", titleInput.getText().toString());
-    intent.putExtra("dateFrom", dateFromInput.getText().toString());
-    intent.putExtra("dateTo", dateToInput.getText().toString());
+public class MainActivity extends AppCompatActivity {
 
-    startActivity(intent);
-});
+    EditText titleInput;
+    EditText dateFromInput;
+    EditText dateToInput;
 
- Button addButton = findViewById(R.id.btnAddGame);
+    Button searchBtn;
+    Button addButton;
 
- addButton.setOnClickListener(v -> {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
 
-    Intent intent = new Intent(MainActivity.this, AddGameActivity.class);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-    startActivity(intent);
-}); 
+        titleInput = findViewById(R.id.titleInput);
+        dateFromInput = findViewById(R.id.dateFromInput);
+        dateToInput = findViewById(R.id.dateToInput);
 
+        searchBtn = findViewById(R.id.searchBtn);
+        addButton = findViewById(R.id.btnAddGame);
+
+        searchBtn.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    ResultsActivity.class
+            );
+
+            intent.putExtra("title",
+                    titleInput.getText().toString());
+
+            intent.putExtra("dateFrom",
+                    dateFromInput.getText().toString());
+
+            intent.putExtra("dateTo",
+                    dateToInput.getText().toString());
+
+            startActivity(intent);
+        });
+
+        addButton.setOnClickListener(v -> {
+
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    AddGameActivity.class
+            );
+
+            startActivity(intent);
+        });
+    }
 }
