@@ -10,6 +10,9 @@ import retrofit2.http.Query;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
+import com.example.retrogamesapp.LoginRequest;
+import com.example.retrogamesapp.LoginResponse;
+
 public interface ApiService {
 
     @GET("games")
@@ -20,4 +23,9 @@ public interface ApiService {
     );
     @POST("games")
     Call<Game> addGame(@Body Game game);
+
+    @POST("login/")
+    Call<LoginResponse> login(
+        @Body LoginRequest request
+);
 }
