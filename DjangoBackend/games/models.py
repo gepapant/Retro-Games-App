@@ -11,7 +11,11 @@ class Game(models.Model):
 
     description = models.TextField(blank=True)
 
-    image_url = models.URLField(blank=True)
+    image = models.ImageField(
+    upload_to='covers/',
+    blank=True,
+    null=True
+    )
 
     youtube_url = models.URLField(blank=True)
 
