@@ -1,31 +1,31 @@
 package com.example.retrogamesapp;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Game {
+
     @SerializedName("id")
-    private Integer id;
+    private int id;
 
     @SerializedName("title")
     private String title;
- 
+
     @SerializedName("platform")
     private String platform;
 
-    @SerializedName("releaseDate")
+    @SerializedName("release_date")
     private String releaseDate;
-  
+
     @SerializedName("description")
     private String description;
 
-    @SerializedName("imageUrl")
-    private String imageUrl;
+    @SerializedName("image")
+    private String image;
 
-    @SerializedName("youtubeUrl")
+    @SerializedName("youtube_url")
     private String youtubeUrl;
- 
 
-    public Game() {
-    }
+    public Game() {}
 
     public int getId() {
         return id;
@@ -67,12 +67,12 @@ public class Game {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImage() {
+        return image;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getYoutubeUrl() {
