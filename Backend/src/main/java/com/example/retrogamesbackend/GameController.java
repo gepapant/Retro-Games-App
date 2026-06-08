@@ -35,4 +35,10 @@ public class GameController {
 
         return repository.filterGames(title, from, to);
     }
+
+    @PostMapping
+    public Game addGame(@RequestBody Game game) {
+
+        return repository.save(game);
+    }
 }
