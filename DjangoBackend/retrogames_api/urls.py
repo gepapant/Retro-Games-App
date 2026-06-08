@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from django.urls import path, include
+from games.auth import login
 
 urlpatterns = [
 
@@ -13,4 +14,6 @@ urlpatterns = [
         'api/',
         include('games.urls')
     ),
+
+    path('api/login/', login),
 ]
