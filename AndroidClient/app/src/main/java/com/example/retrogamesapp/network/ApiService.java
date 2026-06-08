@@ -16,7 +16,9 @@ public interface ApiService {
 
     @GET("games/")
     Call<List<Game>> getGames(
-            @Query("search") String search
+            @Query("title") String title,
+            @Query("dateFrom") String dateFrom,
+            @Query("dateTo") String dateTo
     );
 
     @POST("games/")
