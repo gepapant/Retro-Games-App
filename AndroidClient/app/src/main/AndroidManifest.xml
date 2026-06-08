@@ -8,27 +8,27 @@
         android:allowBackup="true"
         android:label="Retro Games App">
 
-        <activity android:name=".AddGameActivity"/>
-        <activity android:name=".DetailActivity"/>
+        <activity android:name=".LoginActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN"/>
+
+                <category
+                    android:name="android.intent.category.LAUNCHER"/>
+
+            </intent-filter>
+
+        </activity>
+
+        <activity android:name=".MainActivity"/>
+
         <activity android:name=".ResultsActivity"/>
 
-        <activity android:name=".MainActivity">
-        <activity android:name=".LoginActivity">
-        
-            <intent-filter>
-        
-                <action
-                    android:name=
-                    "android.intent.action.MAIN"/>
-        
-                <category
-                    android:name=
-                    "android.intent.category.LAUNCHER"/>
+        <activity android:name=".DetailActivity"/>
 
-    </intent-filter>
-
-</activity>
-        </activity>
+        <activity android:name=".AddGameActivity"/>
 
     </application>
 
