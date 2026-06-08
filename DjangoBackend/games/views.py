@@ -1,5 +1,5 @@
-from rest_framework import viewsets, filters
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets , filters
 
 from .models import Game
 from .serializers import GameSerializer
@@ -11,16 +11,29 @@ class GameViewSet(viewsets.ModelViewSet):
 
     serializer_class = GameSerializer
 
-    filter_backends = [
-        DjangoFilterBackend,
-        filters.SearchFilter
-    ]
+    def get_queryset(self):
 
-    filterset_fields = {
-        'release_date': ['gte', 'lte'],
-    }
+        queryset = Game.objects.all()
 
-    search_fields = [
-        'title',
-        'platform'
-    ]
+        title = self.request.GET.get("title")
+
+        date_from = self.request.GET.get("dateFrom")
+
+        date_to = self.request.GET.get("dateTo")
+
+        if title:
+            queryset = queryset.filter(
+                title__icontains=title
+            )
+
+        if date_from:
+            queryset = queryset.filter(
+                release_date__gte=date_from
+            )
+
+        if date_to:
+            queryset = queryset.filter(
+                release_date__lte=date_to
+            )
+
+        return queryset
