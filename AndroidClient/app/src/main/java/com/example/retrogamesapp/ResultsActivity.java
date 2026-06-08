@@ -34,7 +34,7 @@ public class ResultsActivity extends AppCompatActivity {
         String dateTo = getIntent().getStringExtra("dateTo");
 
         ApiService apiService =
-                RetrofitClient.getInstance().create(ApiService.class);
+                RetrofitClient.getInstance(this).create(ApiService.class);
 
         Call<List<Game>> call =
                 apiService.getGames(title, dateFrom, dateTo);
