@@ -1,8 +1,6 @@
 package com.example.retrogamesapp.adapter;
+
 import android.content.Intent;
-
-import com.example.retrogamesapp.DetailActivity;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.retrogamesapp.DetailActivity;
 import com.example.retrogamesapp.Game;
 import com.example.retrogamesapp.R;
 
@@ -53,18 +52,21 @@ public class GameAdapter extends RecyclerView.Adapter<GameAdapter.ViewHolder> {
 
         holder.itemView.setOnClickListener(v -> {
 
-            Intent intent = new Intent(v.getContext(), DetailActivity.class);
+            Intent intent = new Intent(
+                    v.getContext(),
+                    DetailActivity.class
+            );
 
             intent.putExtra("title", game.getTitle());
             intent.putExtra("platform", game.getPlatform());
-            intent.putExtra("date", game.getReleaseDate());
+            intent.putExtra("release_date", game.getReleaseDate());
             intent.putExtra("description", game.getDescription());
-            intent.putExtra("imageUrl", game.getImageUrl());
-            intent.putExtra("youtubeUrl", game.getYoutubeUrl());
+            intent.putExtra("image", game.getImage());
+            intent.putExtra("youtube_url", game.getYoutubeUrl());
 
-        v.getContext().startActivity(intent);
-    });
-}
+            v.getContext().startActivity(intent);
+        });
+    }
 
     @Override
     public int getItemCount() {
