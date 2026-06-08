@@ -49,7 +49,7 @@ public class AddGameActivity extends AppCompatActivity {
         game.setDescription(etDescription.getText().toString());
 
         ApiService api =
-                RetrofitClient.getInstance().create(ApiService.class);
+                RetrofitClient.getInstance(this).create(ApiService.class);
 
         api.addGame(game).enqueue(new Callback<Game>() {
 
