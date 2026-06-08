@@ -46,7 +46,8 @@ public class LoginActivity extends AppCompatActivity {
         );
 
         ApiService api =
-                RetrofitClient.getInstance().create(ApiService.class);
+                RetrofitClient.getInstance(this)
+                        .create(ApiService.class);
 
         api.login(request).enqueue(new Callback<LoginResponse>() {
 
